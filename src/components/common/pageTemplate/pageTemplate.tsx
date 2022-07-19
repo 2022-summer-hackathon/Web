@@ -1,5 +1,12 @@
+import NavBar from "../navBar/navBar";
+import { PageTemplateContainer } from "./style";
+
 const PageTemplate = () => {
-  return <div></div>;
+  return (
+    <PageTemplateContainer>
+      <NavBar />
+    </PageTemplateContainer>
+  );
 };
 
 export default PageTemplate;
