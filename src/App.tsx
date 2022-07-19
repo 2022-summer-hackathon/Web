@@ -1,10 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
+import PageTemplate from "./components/common/pageTemplate/pageTemplate";
 import Router from "./components/router";
 
 function App() {
   return (
     <BrowserRouter>
-      <Router />
+      <PageTemplate>
+        <Router />
+      </PageTemplate>
     </BrowserRouter>
   );
 }

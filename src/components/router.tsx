@@ -9,7 +9,7 @@ const Router = () => {
     <Routes>
       <Route path="/" element={<CustomRoute component={<HomePage />} />} />
       <Route
-        path="/profile/:id"
+        path="/profile"
         element={<CustomRoute component={<ProfilePage />} />}
       />
       <Route path="/authloading" element={<AuthLoadingPage />} />
