@@ -7,6 +7,7 @@ export const AuthContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #f6f8fa;
 `;
 
 export const AuthMidBox = styled.div`
@@ -27,4 +28,5 @@ export const DauthLoginBtn = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 `;

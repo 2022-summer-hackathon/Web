@@ -68,6 +68,7 @@ const Main = () => {
       </MainWrap>
     </MainContainer>
   );
+
 };
 
 export default Main;
