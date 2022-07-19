@@ -6,7 +6,7 @@ export const ProfileLevelContainer = styled.div`
   flex-direction: column;
   align-items: center;
   row-gap: 5px;
-  margin-top: 36px;
+  margin-top: 19px;
 `;
 
 export const ProfileLevelText = styled.span`

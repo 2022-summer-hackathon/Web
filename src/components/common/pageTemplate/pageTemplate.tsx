@@ -2,6 +2,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN_KEY } from "../../../constants/token/token.constants";
 import token from "../../../lib/token/token";
+import Main from "../../main/main";
 import NavBar from "../navBar/navBar";
 import { PageTemplateContainer } from "./style";
 
@@ -25,6 +26,7 @@ const PageTemplate = ({ children }: Props) => {
     <PageTemplateContainer>
       {isLogin && <NavBar />}
       {children}
+      {isLogin && <Main />}
     </PageTemplateContainer>
   );
 };
