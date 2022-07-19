@@ -1,4 +1,5 @@
 import { Feed } from "../../interfaces/main/main.type";
+import PostingButton from "../common/postingButton/postButton";
 import MainFeed from "./mainFeed/mainFeed";
 import MainHeader from "./mainHeader/mainHeader";
 import { MainContainer, MainFeedWrap, MainWrap } from "./style";
@@ -66,9 +67,9 @@ const Main = () => {
           ))}
         </MainFeedWrap>
       </MainWrap>
+      <PostingButton />
     </MainContainer>
   );
-
 };
 
 export default Main;

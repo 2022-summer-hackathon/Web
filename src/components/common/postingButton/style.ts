@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const PheedButtonContainer = styled.button`
+export const PostingButtonContainer = styled.button`
   width: 100px;
   height: 100px;
   border-radius: 100%;
@@ -12,9 +12,10 @@ export const PheedButtonContainer = styled.button`
   right: 35px;
   background: linear-gradient(180deg, #f1baef 0%, #b8bbff 100%);
   border: 0px;
+  z-index: 2;
 `;
 
-export const PheedPostIcon = styled.div<{ isClick: boolean }>`
+export const PostingButtonIcon = styled.div<{ isClick: boolean }>`
   width: 70px;
   height: 70px;
   font-size: 70px;

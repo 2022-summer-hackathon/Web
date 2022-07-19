@@ -1,6 +1,5 @@
 import { AuthContainer, AuthMidBox, DauthLoginBtn } from "./style";
 import LogoDetail from "../assets/icon/logo2.svg";
-import NewPost from "../common/post/newPost";
 
 const Auth = () => {
   return (
@@ -14,7 +13,6 @@ const Auth = () => {
           Dauth로 로그인
         </DauthLoginBtn>
       </AuthMidBox>
-      <NewPost />
     </AuthContainer>
   );
 };
