@@ -18,6 +18,7 @@ export const NavBarIcon = styled.img`
   align-items: center;
   justify-content: center;
   object-fit: scale-down;
+  cursor: pointer;
 `;
 
 export const NavBarItemWrap = styled.div`

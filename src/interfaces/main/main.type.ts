@@ -10,3 +10,7 @@ export interface Feed {
   isLike: boolean;
   movie: string;
 }
+
+export interface FeedsByCategoryResponse extends Response {
+  data: {};
+}

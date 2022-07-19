@@ -14,7 +14,6 @@ const Auth = () => {
           Dauth로 로그인
         </DauthLoginBtn>
       </AuthMidBox>
-      <NewPost />
     </AuthContainer>
   );
 };
