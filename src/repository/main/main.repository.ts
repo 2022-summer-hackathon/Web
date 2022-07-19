@@ -1,18 +1,37 @@
 import axios from "axios";
 import {
+  FeedsResponse,
   MakeFeed,
   MovieIntoResponse,
   UploadImageResponse,
 } from "../../interfaces/main/main.type";
 import { customAxios } from "../../lib/axios/customAxios";
-import { getMovieInfoParam, postLikeFeedParam } from "./main.param";
+import {
+  getMovieInfoParam,
+  postLikeFeedParam,
+  getFeedsByCategoryParam,
+  postDisLikeFeedParam,
+} from "./main.param";
 
 class MainRepository {
   public async postMakeFeed(makeFeedData: MakeFeed): Promise<void> {
     await customAxios.post("/posting", makeFeedData);
   }
 
-  public async postLikeFeed({ count }: postLikeFeedParam) {}
+  public async postLikeFeed({ idx }: postLikeFeedParam) {
+    await customAxios.post(`/posting/plus/${idx}`);
+  }
+
+  public async postDisLikeFeed({ idx }: postDisLikeFeedParam) {
+    await customAxios.post(`/posting/minus/${idx}`);
+  }
+
+  public async getFeeds(): Promise<FeedsResponse> {
+    const { data } = await customAxios.get("/posting");
+    return data;
+  }
+
+  public async getFeedsByCategory({ category }: getFeedsByCategoryParam) {}
 
   public async getMovieInfo({
     movieName,

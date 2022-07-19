@@ -16,7 +16,13 @@ const NavBar = () => {
 
   return (
     <NavBarContainer>
-      <NavBarIcon src={Logo} />
+      <NavBarIcon
+        src={Logo}
+        onClick={() => {
+          navigate("/");
+          setSection("/");
+        }}
+      />
       <NavBarItemWrap>
         {NAVBAR_ITEMS.map((item) => (
           <NavBarItem

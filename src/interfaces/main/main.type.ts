@@ -1,14 +1,29 @@
 import { Profile } from "../profile/profile.type";
+import { Response } from "../util/util.type";
 
 export interface Feed {
+  idx: number;
   user: Profile;
-  content: string[];
   like: number;
-  rating: number;
-  pictures: string[];
-  category: string[];
+  star: number;
+  postingInfo: FeedContent[];
   isLike: boolean;
   movie: string;
+  category: string[];
+}
+
+export interface FeedContent {
+  idx: number;
+  text: string;
+  image: string;
+}
+
+export interface FeedsResponse extends Response {
+  data: Feed[];
+}
+
+export interface FeedsByCategoryResponse extends Response {
+  data: {};
 }
 
 export interface MakeFeed {

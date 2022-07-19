@@ -4,7 +4,7 @@ import { FaPlus } from "react-icons/fa";
 import PostingModal from "../postingModal/postingModal";
 
 const PostingButton = () => {
-  const [isClick, setIsClick] = useState(true);
+  const [isClick, setIsClick] = useState(false);
   return (
     <>
       <PostingButtonContainer onClick={() => setIsClick((prev) => !prev)}>
