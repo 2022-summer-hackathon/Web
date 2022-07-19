@@ -21,7 +21,7 @@ const ProfileLevel = ({ level, experience, remainingExperience }: Props) => {
         <ProfileLevelChart experience={experience} />
       </ProfileLevelChartWrap>
       <ProfileLevelText>
-        다음 레벨까지 {remainingExperience} 경험치
+        다음 레벨까지 {remainingExperience}% 남았습니다
       </ProfileLevelText>
     </ProfileLevelContainer>
   );
