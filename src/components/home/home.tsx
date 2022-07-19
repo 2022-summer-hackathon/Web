@@ -9,7 +9,6 @@ import { HomeContainer } from "./style";
 const Home = () => {
   const { categories } = useCategory();
   const [FeedInfo, setFeedInfo] = useRecoilState(FeedAtom);
-  const reviewItem = customAxios.get("/");
   const navigate = useNavigate();
 
   return (

@@ -63,14 +63,16 @@ const MainFeed = ({ feedData }: Props) => {
           </MainFeedArrowIcon>
         </MainFeedArrow>
 
-        <MainFeedMiddleImg src={feedData.pictures[currentContentCount]} />
+        <MainFeedMiddleImg
+          src={feedData.postingInfo[currentContentCount].image}
+        />
       </MainFeedMiddleImgWrap>
       <MainFeedBottomWrap>
         <MAinFeedBottomMovieName>
-          {feedData.movie} ⭐{feedData.rating}
+          {feedData.movie} ⭐{feedData.star}
         </MAinFeedBottomMovieName>
         <MAinFeedBottomContent>
-          {feedData.content[currentContentCount]}
+          {feedData.postingInfo[currentContentCount].text}
         </MAinFeedBottomContent>
         <MainFeedBottomCategoryWrap>
           {feedData.category.map((item) => (

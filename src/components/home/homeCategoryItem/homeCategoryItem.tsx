@@ -12,7 +12,7 @@ const HomeCategoryItem = ({ name }: Props) => {
   return (
     <HomeCategoryItemContainer
       onClick={() => {
-        setFeedInfo({ nane });
+        // setFeedInfo({ nane });
       }}
     >
       {name}
