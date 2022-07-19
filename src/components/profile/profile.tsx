@@ -1,3 +1,4 @@
+import { useGetUser } from "../../queries/profile/profile.query";
 import ProfileLevel from "./profileLevel/profileLevel";
 import {
   ProfileContainer,
@@ -7,13 +8,25 @@ import {
 } from "./style";
 
 const Profile = () => {
+  const { data, isLoading } = useGetUser();
+
   return (
     <ProfileContainer>
-      <ProfileImgWrap>
-        <ProfileImg />
-      </ProfileImgWrap>
-      <ProfileName>김종윤</ProfileName>
-      <ProfileLevel level="1" experience={70} remainingExperience={4} />
+      {isLoading ? (
+        <>로딩중</>
+      ) : (
+        <>
+          <ProfileImgWrap>
+            <ProfileImg />
+          </ProfileImgWrap>
+          <ProfileName>{data?.data?.auth?.name}</ProfileName>
+          <ProfileLevel
+            level={String(data?.data?.level)}
+            experience={data?.data?.exp!}
+            remainingExperience={4}
+          />
+        </>
+      )}
     </ProfileContainer>
   );
 };

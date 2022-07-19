@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { sectionBarAnimation } from "../../styles/libStyle";
 
 export const ProfileContainer = styled.div`
-  width: 300px;
+  min-width: 300px;
   height: 100%;
   display: flex;
   flex-direction: column;
