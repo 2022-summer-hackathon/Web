@@ -1,21 +1,17 @@
-import {
-  AuthContainer,
-  AuthMidBox,
-  DauthLoginBtn,
-  SignUpBtn,
-  SignUpText,
-} from "./style";
+import { AuthContainer, AuthMidBox, DauthLoginBtn } from "./style";
+import LogoDetail from "../assets/icon/logo2.svg";
 
 const Auth = () => {
   return (
     <AuthContainer>
+      <img src={LogoDetail} alt="로고입니다" />
+      <span>쉽고 간편한 무비니티 로그인</span>
       <AuthMidBox>
-        <input type="text" placeholder="아이디를 입력해주세요" />
-        <input type="text" placeholder="비밀번호를 입력해주세요" />
-        <DauthLoginBtn>Dauth로 로그인</DauthLoginBtn>
-        <SignUpText>
-          계정이 없으신가요? <SignUpBtn>회원가입</SignUpBtn>
-        </SignUpText>
+        <DauthLoginBtn
+          href={`http://dauth.b1nd.com/login?client_id=fbb1bcdff1c54463b1f25ba24154ff5b9a054182571c4896bc0f4dc3fb2d5acd&redirect_uri=http://localhost:3000/authloading`}
+        >
+          Dauth로 로그인
+        </DauthLoginBtn>
       </AuthMidBox>
     </AuthContainer>
   );

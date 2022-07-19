@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import AuthLoadingPage from "../pages/auth/authLoadingPage";
 import HomePage from "../pages/home/homePage";
 import ProfilePage from "../pages/profile/profilePage";
 import CustomRoute from "./common/customRoute/customRoute";
@@ -11,6 +12,7 @@ const Router = () => {
         path="/profile/:id"
         element={<CustomRoute component={<ProfilePage />} />}
       />
+      <Route path="/authloading" element={<AuthLoadingPage />} />
     </Routes>
   );
 };
