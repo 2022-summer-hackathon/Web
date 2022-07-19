@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const MainFeedContainer = styled.div`
-  width: 540px;
+  width: 890px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@ export const MainFeedHeaderName = styled.span`
 `;
 
 export const MainFeedMiddleImgWrap = styled.div`
-  width: 540px;
+  width: 890px;
   height: 540px;
   display: flex;
   align-items: center;
@@ -91,8 +91,10 @@ export const MainFeedArrowIcon = styled.div`
 
 export const MainFeedBottomWrap = styled.div`
   width: 100%;
-  height: 100px;
+  min-height: 100px;
+  height: auto;
   display: flex;
+  flex-direction: column;
   padding: 12px;
   background-color: white;
   border: 1px solid rgb(219, 219, 219);
@@ -100,9 +102,28 @@ export const MainFeedBottomWrap = styled.div`
   border-bottom: 0px;
 `;
 
-export const MAinFeedBottomContent = styled.div`
+export const MAinFeedBottomMovieName = styled.span`
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+`;
+
+export const MAinFeedBottomContent = styled.p`
   font-size: 14px;
   color: black;
+  word-break: break-all;
+`;
+
+export const MainFeedBottomCategoryWrap = styled.div`
+  margin-top: 30px;
+  display: flex;
+  column-gap: 5px;
+  flex-wrap: wrap;
+`;
+
+export const MainFeedBottomCategory = styled.span`
+  font-size: 12px;
+  color: gray;
 `;
 
 export const MainFeedBottomBottomWrap = styled.div`
@@ -133,5 +154,5 @@ export const MainFeedBottomBottomButtonIcon = styled.div<{ isClick: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ isClick }) => (isClick ? "rgb(237, 73, 86)" : "nones")};
+  color: ${({ isClick }) => (isClick ? "#B8BBFF" : "none")};
 `;

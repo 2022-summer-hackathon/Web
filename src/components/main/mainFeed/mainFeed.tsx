@@ -5,7 +5,10 @@ import {
   MainFeedBottomBottomButton,
   MainFeedBottomBottomButtonIcon,
   MainFeedBottomBottomWrap,
+  MainFeedBottomCategory,
+  MainFeedBottomCategoryWrap,
   MAinFeedBottomContent,
+  MAinFeedBottomMovieName,
   MainFeedBottomWrap,
   MainFeedContainer,
   MainFeedHeaderImage,
@@ -63,9 +66,17 @@ const MainFeed = ({ feedData }: Props) => {
         <MainFeedMiddleImg src={feedData.pictures[currentContentCount]} />
       </MainFeedMiddleImgWrap>
       <MainFeedBottomWrap>
+        <MAinFeedBottomMovieName>
+          {feedData.movie} ⭐{feedData.rating}
+        </MAinFeedBottomMovieName>
         <MAinFeedBottomContent>
           {feedData.content[currentContentCount]}
         </MAinFeedBottomContent>
+        <MainFeedBottomCategoryWrap>
+          {feedData.category.map((item) => (
+            <MainFeedBottomCategory>#{item}</MainFeedBottomCategory>
+          ))}
+        </MainFeedBottomCategoryWrap>
       </MainFeedBottomWrap>
       <MainFeedBottomBottomWrap>
         <MainFeedBottomBottomButton onClick={onLikeFeed}>

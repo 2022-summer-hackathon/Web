@@ -8,4 +8,5 @@ export interface Feed {
   pictures: string[];
   category: string[];
   isLike: boolean;
+  movie: string;
 }

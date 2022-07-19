@@ -1,3 +1,5 @@
+import { Response } from "../util/util.type";
+
 export interface Profile {
   idx: number;
   level: number;
@@ -7,4 +9,8 @@ export interface Profile {
     accessLevel: number;
     profileImage: string;
   };
+}
+
+export interface UserResponse extends Response {
+  data: Profile;
 }
