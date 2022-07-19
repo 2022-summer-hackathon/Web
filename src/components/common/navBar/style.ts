@@ -8,6 +8,7 @@ export const NavBarContainer = styled.div`
   align-items: center;
   padding: 20px 15px;
   background-color: #343434;
+  z-index: 2;
 `;
 
 export const NavBarIcon = styled.img`
@@ -30,20 +31,29 @@ export const NavBarItem = styled.button<{ isSelected: boolean }>`
   width: 60px;
   height: 60px;
   border-radius: 15px;
-  background-color: #f8f8f8;
   border: 0px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  ${({ isSelected }) => (isSelected ? css`` : css``)}
+  ${({ isSelected }) =>
+    isSelected
+      ? css`
+          background-color: #f8f8f8;
+        `
+      : css`
+          background: transparent;
+        `}
 `;
 
 export const NavBarItemIcon = styled.div<{ isSelected: boolean }>`
   width: 44px;
   height: 44px;
   font-size: 44px;
+  display: flex;
+  align-items: cetner;
+  justify-content: center;
 
   ${({ isSelected }) =>
     isSelected
