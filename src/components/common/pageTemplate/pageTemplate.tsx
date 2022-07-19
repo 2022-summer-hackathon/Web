@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN_KEY } from "../../../constants/token/token.constants";
 import token from "../../../lib/token/token";
 import NavBar from "../navBar/navBar";
@@ -9,9 +10,20 @@ interface Props {
 }
 
 const PageTemplate = ({ children }: Props) => {
+  const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token.getToken(ACCESS_TOKEN_KEY)) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  }, [navigate, isLogin]);
+
   return (
     <PageTemplateContainer>
-      {token.getToken(ACCESS_TOKEN_KEY) && <NavBar />}
+      {isLogin && <NavBar />}
       {children}
     </PageTemplateContainer>
   );

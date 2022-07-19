@@ -16,4 +16,25 @@ export const ProfileContainer = styled.div`
   z-index: 1;
 `;
 
-export const ProfileImage = styled.img``;
+export const ProfileImgWrap = styled.div`
+  width: 124px;
+  height: 124px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: black;
+`;
+
+export const ProfileImg = styled.img`
+  width: 100%;
+  object-fit: scale-down;
+`;
+
+export const ProfileName = styled.span`
+  font-size: 24px;
+  font-weight: 600;
+  color: #5a5a5a;
+  margin-top: 17px;
+`;

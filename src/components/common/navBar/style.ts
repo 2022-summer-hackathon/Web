@@ -48,9 +48,9 @@ export const NavBarItem = styled.button<{ isSelected: boolean }>`
 `;
 
 export const NavBarItemIcon = styled.div<{ isSelected: boolean }>`
-  width: 44px;
-  height: 44px;
-  font-size: 44px;
+  width: 36px;
+  height: 36px;
+  font-size: 36px;
   display: flex;
   align-items: cetner;
   justify-content: center;
