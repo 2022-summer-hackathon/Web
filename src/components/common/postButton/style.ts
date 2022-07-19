@@ -1,20 +1,34 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const PheedButtonContainer = styled.div`
+export const PheedButtonContainer = styled.button`
   width: 100px;
   height: 100px;
   border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   position: fixed;
   bottom: 35px;
   right: 35px;
+  background: linear-gradient(180deg, #f1baef 0%, #b8bbff 100%);
+  border: 0px;
 `;
 
-export const PheedPostButtonImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: scale-down;
+export const PheedPostIcon = styled.div<{ isClick: boolean }>`
+  width: 70px;
+  height: 70px;
+  font-size: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  ${({ isClick }) =>
+    isClick
+      ? css`
+          transform: rotate(45deg);
+        `
+      : css`
+          transform: rotate(0deg);
+        `}
 `;

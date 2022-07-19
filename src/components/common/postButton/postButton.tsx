@@ -1,10 +1,14 @@
-import { PheedPostButtonImg, PheedButtonContainer } from "./style";
-import AddButtonDeatail from "../../assets/icon/plus.svg";
+import { PheedButtonContainer, PheedPostIcon } from "./style";
+import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
 
 const PostButton = () => {
+  const [postState, setPostState] = useState(true);
   return (
-    <PheedButtonContainer>
-      <PheedPostButtonImg src={AddButtonDeatail} />
+    <PheedButtonContainer onClick={() => setPostState((prev) => !prev)}>
+      <PheedPostIcon isClick={postState}>
+        <FaPlus />
+      </PheedPostIcon>
     </PheedButtonContainer>
   );
 };
