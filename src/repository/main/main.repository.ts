@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  FeedsByCategoryResponse,
   FeedsResponse,
   MakeFeed,
   MovieIntoResponse,
@@ -31,7 +32,14 @@ class MainRepository {
     return data;
   }
 
-  public async getFeedsByCategory({ category }: getFeedsByCategoryParam) {}
+  public async getFeedsByCategory({
+    category,
+  }: getFeedsByCategoryParam): Promise<FeedsByCategoryResponse> {
+    const { data } = await customAxios.get(
+      `/posting/movie/category/${category}`
+    );
+    return data;
+  }
 
   public async getMovieInfo({
     movieName,

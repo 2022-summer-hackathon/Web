@@ -4,6 +4,7 @@ import {
   MainFeedArrowIcon,
   MainFeedBottomBottomButton,
   MainFeedBottomBottomButtonIcon,
+  MainFeedBottomBottomStarText,
   MainFeedBottomBottomWrap,
   MainFeedBottomCategory,
   MainFeedBottomCategoryWrap,
@@ -42,29 +43,38 @@ const MainFeed = ({ feedData }: Props) => {
     <MainFeedContainer>
       <MainFeedHeaderWrap>
         <MainFeedHeaderInfoWrap>
-          <MainFeedHeaderImage src={feedData.user.auth.profileImage} />
+          <MainFeedHeaderImage
+            src={"http://dodam.b1nd.com/static/media/profile.9a3a77b0.svg"}
+          />
           <MainFeedHeaderName>
-            Lv.{feedData.user.level} {feedData.user.auth.name}
+            Lv.{feedData.user.level} {feedData.user.auth?.name}
           </MainFeedHeaderName>
         </MainFeedHeaderInfoWrap>
       </MainFeedHeaderWrap>
       <MainFeedMiddleImgWrap>
-        <MainFeedArrow direction="left" onClick={() => onChangeContent("left")}>
-          <MainFeedArrowIcon>
-            <MdOutlineArrowBackIosNew />
-          </MainFeedArrowIcon>
-        </MainFeedArrow>
-        <MainFeedArrow
-          direction="right"
-          onClick={() => onChangeContent("right")}
-        >
-          <MainFeedArrowIcon>
-            <MdOutlineArrowForwardIos />
-          </MainFeedArrowIcon>
-        </MainFeedArrow>
+        {currentContentCount !== 0 && (
+          <MainFeedArrow
+            direction="left"
+            onClick={() => onChangeContent("left")}
+          >
+            <MainFeedArrowIcon>
+              <MdOutlineArrowBackIosNew />
+            </MainFeedArrowIcon>
+          </MainFeedArrow>
+        )}
+        {currentContentCount !== feedData.postingInfo.length - 1 && (
+          <MainFeedArrow
+            direction="right"
+            onClick={() => onChangeContent("right")}
+          >
+            <MainFeedArrowIcon>
+              <MdOutlineArrowForwardIos />
+            </MainFeedArrowIcon>
+          </MainFeedArrow>
+        )}
 
         <MainFeedMiddleImg
-          src={feedData.postingInfo[currentContentCount].image}
+          src={feedData.postingInfo[currentContentCount]?.image}
         />
       </MainFeedMiddleImgWrap>
       <MainFeedBottomWrap>
@@ -72,11 +82,15 @@ const MainFeed = ({ feedData }: Props) => {
           {feedData.movie} ⭐{feedData.star}
         </MAinFeedBottomMovieName>
         <MAinFeedBottomContent>
-          {feedData.postingInfo[currentContentCount].text}
+          {feedData.postingInfo[currentContentCount]?.text}
         </MAinFeedBottomContent>
         <MainFeedBottomCategoryWrap>
-          {feedData.category.map((item) => (
-            <MainFeedBottomCategory>#{item}</MainFeedBottomCategory>
+          {feedData?.category.map((item) => (
+            <MainFeedBottomCategory
+              key={feedData.movie + "category " + item.idx}
+            >
+              #{item.category}
+            </MainFeedBottomCategory>
           ))}
         </MainFeedBottomCategoryWrap>
       </MainFeedBottomWrap>
@@ -86,6 +100,9 @@ const MainFeed = ({ feedData }: Props) => {
             <FaHeart />
           </MainFeedBottomBottomButtonIcon>
         </MainFeedBottomBottomButton>
+        <MainFeedBottomBottomStarText>
+          {`이 리뷰에 ${likeCount}명이 공감했습니다`}
+        </MainFeedBottomBottomStarText>
       </MainFeedBottomBottomWrap>
     </MainFeedContainer>
   );

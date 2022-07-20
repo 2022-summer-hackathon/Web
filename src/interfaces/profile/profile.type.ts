@@ -9,8 +9,19 @@ export interface Profile {
     accessLevel: number;
     profileImage: string;
   };
+  posting: ProfileMyFeed[];
+}
+
+export interface ProfileMyFeed {
+  idx: number;
+  likeCount: number;
+  movie: string;
+  star: number;
 }
 
 export interface UserResponse extends Response {
-  data: Profile;
+  data: {
+    remainExp: number;
+    userData: Profile;
+  };
 }

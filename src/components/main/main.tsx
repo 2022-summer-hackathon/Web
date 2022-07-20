@@ -11,12 +11,6 @@ const Main = () => {
   useFeeds();
   const [feeds, setFeeds] = useRecoilState(FeedAtom);
 
-  console.log(feeds);
-
-  useEffect(() => {
-    console.log(feeds);
-  }, [feeds]);
-
   return (
     <MainContainer>
       <MainWrap>

@@ -5,17 +5,17 @@ import { FeedAtom } from "../../store/main/mainStore";
 
 const useFeeds = () => {
   const [feeds, setFeeds] = useRecoilState(FeedAtom);
-  const { data, isLoading } = useGetFeeds({ enabled: !!feeds });
+  const { data, isLoading } = useGetFeeds({
+    staleTime: 200000,
+    cacheTime: 200000,
+    enabled: !!feeds,
+  });
 
   useEffect(() => {
     if (!isLoading && data) {
       setFeeds(data.data);
     }
-  }, []);
-
-  useEffect(() => {
-    console.log(feeds);
-  }, [feeds]);
+  }, [setFeeds, data, isLoading]);
 
   return {};
 };

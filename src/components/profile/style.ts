@@ -38,3 +38,11 @@ export const ProfileName = styled.span`
   color: #5a5a5a;
   margin-top: 17px;
 `;
+
+export const ProfileMyPostingWrap = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-top: 20px;
+`;

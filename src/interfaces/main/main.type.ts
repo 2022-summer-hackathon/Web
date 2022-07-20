@@ -4,12 +4,17 @@ import { Response } from "../util/util.type";
 export interface Feed {
   idx: number;
   user: Profile;
-  like: number;
+  likeCount: number;
   star: number;
   postingInfo: FeedContent[];
   isLike: boolean;
   movie: string;
-  category: string[];
+  category: FeedCategory[];
+}
+
+export interface FeedCategory {
+  idx: number;
+  category: string;
 }
 
 export interface FeedContent {
@@ -23,7 +28,7 @@ export interface FeedsResponse extends Response {
 }
 
 export interface FeedsByCategoryResponse extends Response {
-  data: {};
+  data: Feed[];
 }
 
 export interface MakeFeed {

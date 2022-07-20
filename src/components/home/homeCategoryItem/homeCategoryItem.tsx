@@ -1,5 +1,4 @@
-import { useRecoilState } from "recoil";
-import { FeedAtom } from "../../../store/main/mainStore";
+import useCategory from "../../../hooks/home/useCategory";
 import { HomeCategoryItemContainer } from "./style";
 
 interface Props {
@@ -7,14 +6,10 @@ interface Props {
 }
 
 const HomeCategoryItem = ({ name }: Props) => {
-  const [FeedInfo, setFeedInfo] = useRecoilState(FeedAtom);
+  const { requestCategoryMovie } = useCategory({ category: name });
 
   return (
-    <HomeCategoryItemContainer
-      onClick={() => {
-        // setFeedInfo({ nane });
-      }}
-    >
+    <HomeCategoryItemContainer onClick={requestCategoryMovie}>
       {name}
     </HomeCategoryItemContainer>
   );
