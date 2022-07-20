@@ -1,30 +1,24 @@
-import { useState } from "react";
+import { useRecoilState } from "recoil";
+import mainRepository from "../../repository/main/main.repository";
+import { FeedAtom } from "../../store/main/mainStore";
 
-const useCategory = () => {
-  const [categories, setCategories] = useState([
-    "전체",
-    "드라마",
-    "판타지",
-    "서부",
-    "공포",
-    "로맨스",
-    "모험",
-    "스릴러",
-    "느와르",
-    "컬트",
-    "다큐멘터리",
-    "코미디",
-    "가족",
-    "미스터리",
-    "전쟁",
-    "애니메이션",
-    "범죄",
-    "뮤지컬",
-    "SF",
-    "액션",
-  ]);
+interface Params {
+  category: string;
+}
 
-  return { categories };
+const useCategory = ({ category }: Params) => {
+  const [feeds, setFeeds] = useRecoilState(FeedAtom);
+
+  const requestCategoryMovie = async () => {
+    try {
+      const { data } = await mainRepository.getFeedsByCategory({ category });
+      setFeeds(data);
+    } catch (e) {
+      window.alert("카테고리 무비 불러오기 에러");
+    }
+  };
+
+  return { requestCategoryMovie };
 };
 
 export default useCategory;

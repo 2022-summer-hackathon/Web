@@ -136,6 +136,7 @@ export const MainFeedBottomBottomWrap = styled.div`
   padding: 6px 12px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export const MainFeedBottomBottomButton = styled.button`
@@ -155,4 +156,9 @@ export const MainFeedBottomBottomButtonIcon = styled.div<{ isClick: boolean }>`
   align-items: center;
   justify-content: center;
   color: ${({ isClick }) => (isClick ? "#B8BBFF" : "none")};
+`;
+
+export const MainFeedBottomBottomStarText = styled.div`
+  font-size: 16px;
+  color: black;
 `;

@@ -13,7 +13,7 @@ const usePostFeed = () => {
   const [tempMovieName, setTempMovieName] = useState<string>("");
   const [isSearched, setIsSearched] = useState(false);
   const [searchedMovies, setSearchedMovies] = useState<MovieInfo[]>([]);
-
+  const [isPostLoading, setIsPostLoading] = useState(false);
   const [tempMakeFeeds, setTempMakeFeeds] = useState<
     { text: string; image: string }[]
   >([{ text: "", image: "" }]);
@@ -28,6 +28,7 @@ const usePostFeed = () => {
     async (e: React.ChangeEvent<HTMLInputElement>) => {
       if (e.target.files && e.target.files.length) {
         const file = e.target.files[0];
+        setIsPostLoading(true);
         try {
           const { data } = await mainRepository.postUploadImage(file);
           setTempMakeFeeds((prev) => {
@@ -36,7 +37,10 @@ const usePostFeed = () => {
 
             return newValue;
           });
+          setIsPostLoading(false);
         } catch (error) {
+          setIsPostLoading(false);
+
           window.alert("업로드 실패");
         }
       }
@@ -85,13 +89,16 @@ const usePostFeed = () => {
   };
 
   const onSearchMovie = async () => {
+    setIsPostLoading(true);
     try {
       const { movieListResult } = await mainRepository.getMovieInfo({
         movieName: tempMovieName,
       });
       setIsSearched(true);
       setSearchedMovies(movieListResult.movieList);
+      setIsPostLoading(false);
     } catch (error) {
+      setIsPostLoading(false);
       console.log(error);
     }
   };
@@ -116,12 +123,21 @@ const usePostFeed = () => {
       postInfo: tempMakeFeeds,
     };
 
+    if (validMakeFeed.movie === "" || validMakeFeed.star === 0.0) {
+      window.alert("내용을 다 입력해주세요");
+
+      return;
+    }
+    setIsPostLoading(true);
+
     try {
       await mainRepository.postMakeFeed(validMakeFeed);
       window.location.reload();
-      console.log("성공");
+      setIsPostLoading(false);
+      window.alert("업로드 성공");
     } catch (error) {
-      console.log("에러");
+      setIsPostLoading(false);
+      window.alert("업로드 실패");
     }
   };
   return {
@@ -141,6 +157,7 @@ const usePostFeed = () => {
     currentContentCount,
     tempMakeFeeds,
     maxContentCount,
+    isPostLoading,
   };
 };
 

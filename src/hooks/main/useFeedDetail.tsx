@@ -13,7 +13,7 @@ const useFeedDetail = ({ feedData }: Params) => {
   const postLikeFeedMutation = usePostLikeFeed();
   const postDisLikeFeedMutation = usePostDisLikeFeed();
   const [currentContentCount, setCurrentContentCount] = useState(0);
-  const [likeCount, setLikeCount] = useState<number>(feedData.like);
+  const [likeCount, setLikeCount] = useState<number>(feedData.likeCount);
   const [isLike, setIsLike] = useState(feedData.isLike);
 
   const onLikeFeed = async () => {

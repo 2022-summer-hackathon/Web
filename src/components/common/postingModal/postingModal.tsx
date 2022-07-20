@@ -26,6 +26,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Dispatch, SetStateAction } from "react";
 import usePostFeed from "../../../hooks/main/usePostFeed";
 import "antd/dist/antd.css";
+import Loader from "../loader/loader";
 
 interface Props {
   setIsClick: Dispatch<SetStateAction<boolean>>;
@@ -49,6 +50,7 @@ const PostingModal = ({ setIsClick }: Props) => {
     currentContentCount,
     tempMakeFeeds,
     maxContentCount,
+    isPostLoading,
   } = usePostFeed();
 
   return (
@@ -149,6 +151,7 @@ const PostingModal = ({ setIsClick }: Props) => {
           onChange={onChangeText}
           value={tempMakeFeeds[currentContentCount].text}
         />
+        {isPostLoading && <Loader isAbsolute={true} />}
       </PostingModalContainer>
     </>
   );
