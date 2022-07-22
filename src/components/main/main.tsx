@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import useFeeds from "../../hooks/main/useFeeds";
 import { FeedAtom } from "../../store/main/mainStore";
 import PostingButton from "../common/postingButton/postButton";
@@ -9,7 +8,7 @@ import { MainContainer, MainFeedWrap, MainWrap } from "./style";
 
 const Main = () => {
   useFeeds();
-  const [feeds, setFeeds] = useRecoilState(FeedAtom);
+  const feeds = useRecoilValue(FeedAtom);
 
   return (
     <MainContainer>

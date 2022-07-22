@@ -18,7 +18,7 @@ export const ProfileContainer = styled.div`
 
 export const ProfileImgWrap = styled.div`
   width: 124px;
-  height: 124px;
+  min-height: 124px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,8 +41,15 @@ export const ProfileName = styled.span`
 
 export const ProfileMyPostingWrap = styled.div`
   width: 100%;
+  height: 760px;
+  max-height: 760px;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   row-gap: 10px;
   margin-top: 20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
